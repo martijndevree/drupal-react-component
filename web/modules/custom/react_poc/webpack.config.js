@@ -3,25 +3,33 @@ const isDevMode = process.env.NODE_ENV !== 'production';
 
 const config = {
   entry: {
-    main: ["./assets/js/src/index.jsx"]
+    main: ['./assets/js/src/index.tsx']
   },
   devtool: (isDevMode) ? 'source-map' : false,
   mode: (isDevMode) ? 'development' : 'production',
   output: {
-    path: path.resolve(__dirname, "assets/js/dist"),
+    path: path.resolve(__dirname, 'assets/js/dist'),
     filename: '[name].min.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.css', '.sass', '.scss'],
+    // modules: [
+    //   'node_modules',
+    //   path.resolve(__dirname, 'assets/js/src')
+    // ],
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         include: path.join(__dirname, 'assets/js/src'),
-      }
+      },
+      {
+        test: /\.(sa|sc|c)ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ],
   },
 };
