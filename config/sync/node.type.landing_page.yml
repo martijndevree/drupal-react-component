@@ -1,0 +1,11 @@
+uuid: 0070911c-8956-4c03-80e2-f3375638f702
+langcode: en
+status: true
+dependencies: {  }
+name: 'Landing page'
+type: landing_page
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

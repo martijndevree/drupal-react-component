@@ -1,0 +1,7 @@
+name: React POC
+description: 'Adds custom block with React app.'
+package: react
+type: module
+core_version_requirement: ^9.0
+version: 9.x-1.0
+project: react

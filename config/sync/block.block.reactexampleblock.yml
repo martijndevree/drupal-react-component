@@ -1,0 +1,28 @@
+uuid: fc8c7403-ebf3-405a-adc9-cf2577332766
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - react_poc
+  theme:
+    - bartik
+id: reactexampleblock
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: react_example_block
+settings:
+  id: react_example_block
+  label: 'React example block'
+  label_display: '0'
+  provider: react_poc
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      landing_page: landing_page
