@@ -19,7 +19,8 @@ const config = {
       '.jsx',
       '.css',
       '.sass',
-      '.scss'],
+      '.scss'
+    ],
   },
   module: {
     rules: [
