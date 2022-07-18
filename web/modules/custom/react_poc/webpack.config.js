@@ -12,11 +12,14 @@ const config = {
     filename: '[name].min.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.css', '.sass', '.scss'],
-    // modules: [
-    //   'node_modules',
-    //   path.resolve(__dirname, 'assets/js/src')
-    // ],
+    extensions: [
+      '.ts',
+      '.tsx',
+      '.js',
+      '.jsx',
+      '.css',
+      '.sass',
+      '.scss'],
   },
   module: {
     rules: [
