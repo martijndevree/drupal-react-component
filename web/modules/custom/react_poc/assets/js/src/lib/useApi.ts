@@ -27,6 +27,8 @@ const useApi = (options: ApiOptions) => {
       .then((responseData: ApiResponseData) => {
         if (isValidResponseData(responseData)) {
           setData(responseData.data);
+        } else {
+          throw new SyntaxError('Invalid data');
         }
       })
       .catch((responseError: Error) => setError(responseError))
