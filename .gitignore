@@ -26,12 +26,14 @@
 # Ignore drupal core (if not versioning drupal sources)
 /web/vendor
 /web/core
+/web/modules/contrib
 /web/modules/README.txt
 /web/profiles/README.txt
 /web/sites/development.services.yml
 /web/sites/example.settings.local.php
 /web/sites/example.sites.php
 /web/sites/README.txt
+/web/themes/contrib
 /web/themes/README.txt
 /web/.csslintrc
 /web/.editorconfig

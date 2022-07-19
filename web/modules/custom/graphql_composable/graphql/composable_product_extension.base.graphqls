@@ -1,0 +1,25 @@
+type Mutation
+
+scalar Violation
+
+type Product {
+  id: Int!
+  title: String!
+  price: Int
+  description: String
+}
+
+type ProductResponse implements Response {
+  errors: [Violation]
+  product: Product
+}
+
+interface Response {
+  errors: [Violation]
+}
+
+input ProductInput {
+  title: String!
+  price: Int
+  description: String
+}

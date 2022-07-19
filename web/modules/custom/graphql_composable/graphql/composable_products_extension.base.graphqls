@@ -1,0 +1,21 @@
+scalar Violation
+
+type allProducts {
+  products: [Product]
+}
+
+type Product {
+  id: Int!
+  title: String!
+  price: Int
+  description: String
+}
+
+type ProductsResponse implements Response {
+  errors: [Violation]
+  products: allProducts
+}
+
+interface Response {
+  errors: [Violation]
+}
