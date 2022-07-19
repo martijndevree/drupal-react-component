@@ -1,0 +1,11 @@
+uuid: 3d8576cd-d614-4350-acf5-ac53ab121d56
+langcode: en
+status: true
+dependencies: {  }
+name: Product
+type: product
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

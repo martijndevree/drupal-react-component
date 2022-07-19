@@ -1,10 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import './App.scss';
+import NodeItemList from './components/NodeItemList';
 
 function App() {
   return (
     <div className='test-app'>
-      <h1>This is a working React app.</h1>
+      <h1>Onze mooiste trailers</h1>
+      <NodeItemList />
     </div>
   );
 }
