@@ -1,13 +1,20 @@
-import { ProductNodeAttributes } from '../types';
+import { NormalizedDataObject } from '../types';
 import React from 'react';
 import formatMoney from '../lib/formatMoney';
 
-const NodeItem = ({ attributes }: { attributes: ProductNodeAttributes }) => (
+const NodeItem = ({ item }: { item: NormalizedDataObject }) => (
   <div>
-    <span><a href={`/node/${attributes.drupal_internal__nid}`}>{attributes.title}</a> voor {formatMoney(attributes.field_price)}</span>
+    {item.image && (
+      <img src={item.image.url} alt={item.image.altText} />
+    )}
     <p>
-      <i>{attributes.field_body.value}</i>
+      <a href={`/node/${item.drupalId}`}>{item.name}</a> voor {formatMoney(item.price)}
     </p>
+    {item.description && (
+      <p>
+        <i>{item.description}</i>
+      </p>
+    )}
   </div>
 );
 

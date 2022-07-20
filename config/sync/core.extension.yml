@@ -7,8 +7,12 @@ module:
   dynamic_page_cache: 0
   field: 0
   field_ui: 0
+  file: 0
   filter: 0
+  image: 0
   jsonapi: 0
+  media: 0
+  media_library: 0
   mysql: 0
   node: 0
   page_cache: 0
@@ -19,6 +23,7 @@ module:
   text: 0
   toolbar: 0
   user: 0
+  views: 10
   minimal: 1000
 theme:
   seven: 0

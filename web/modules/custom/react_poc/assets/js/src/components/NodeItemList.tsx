@@ -12,8 +12,10 @@ const NodeItemList = () => {
       'drupal_internal__nid',
       'title',
       'field_body',
-      'field_price'
+      'field_price',
+      'field_product_image'
     ],
+    mediaField: 'field_product_image',
     sort: SortingOptions.CreatedDesc,
     limit: 10,
   };
@@ -25,7 +27,7 @@ const NodeItemList = () => {
   return (
     <>
       {data ? (
-        data.map((item) => <NodeItem key={item.id} attributes={item.attributes} />)
+        data.map((item) => <NodeItem key={item.apiId} item={item} />)
       ) : (<p>No products found.</p>)}
     </>
   );

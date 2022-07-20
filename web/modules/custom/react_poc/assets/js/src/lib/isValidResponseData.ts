@@ -1,14 +1,13 @@
 import { ApiResponseData } from '../types';
 
-const isValidResponseData = (data: ApiResponseData): boolean => {
-  if (data === null) {
-    return false;
-  }
-  if (data.data === undefined ||
-    data.data === null ||
-    data.data.length === 0) {
-    return false;
-  }
+const isValidResponseData = (responseData: ApiResponseData): boolean => {
+  if (responseData === null) return false;
+  if (responseData.data === undefined ||
+    responseData.data === null ||
+    responseData.data.length === 0 ||
+    responseData.included === undefined ||
+    responseData.included === null ||
+    responseData.included.length === 0) return false;
   return true;
 };
 
