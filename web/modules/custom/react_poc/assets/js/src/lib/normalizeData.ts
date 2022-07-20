@@ -1,11 +1,17 @@
-import { ApiResponseData, File, Maybe, MediaItem, NormalizedDataObject } from '../types';
+import {
+  ApiResponseData,
+  File,
+  Maybe,
+  MediaItem,
+  NormalizedDataObject
+} from '../types';
 
 const normalizeData = (responseData: ApiResponseData): NormalizedDataObject[] => {
   const { data, included } = responseData;
-  let normalizedDataArray: NormalizedDataObject[] = [];
+  const normalizedDataArray: NormalizedDataObject[] = [];
 
-  data.map((item) => {
-    let normalizedDataObject: NormalizedDataObject = {} as NormalizedDataObject;
+  data.forEach((item) => {
+    const normalizedDataObject: NormalizedDataObject = {} as NormalizedDataObject;
     normalizedDataObject.apiId = item.id;
     normalizedDataObject.drupalId = item.attributes.drupal_internal__nid;
     normalizedDataObject.name = item.attributes.title;
@@ -14,7 +20,7 @@ const normalizeData = (responseData: ApiResponseData): NormalizedDataObject[] =>
 
     let mediaItem: Maybe<MediaItem> = null;
 
-    for (let i = 0; i < included.length; i++) {
+    for (let i = 0; i < included.length; i += 1) {
       const relationshipId = item.relationships.field_product_image.data?.id;
       const includedItem = included[i] as MediaItem;
       const mediaItemId = includedItem.id;
@@ -26,7 +32,7 @@ const normalizeData = (responseData: ApiResponseData): NormalizedDataObject[] =>
     }
 
     if (mediaItem) {
-      for (let i = 0; i < included.length; i++) {
+      for (let i = 0; i < included.length; i += 1) {
         const mediaItemId = mediaItem.relationships.field_media_image.data.id;
         const includedItem = included[i] as File;
         const fileId = includedItem.id;
@@ -43,8 +49,6 @@ const normalizeData = (responseData: ApiResponseData): NormalizedDataObject[] =>
 
     normalizedDataArray.push(normalizedDataObject);
   });
-
-  console.log(normalizedDataArray);
 
   return normalizedDataArray;
 };

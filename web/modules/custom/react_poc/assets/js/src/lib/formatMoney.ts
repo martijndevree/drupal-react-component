@@ -2,7 +2,7 @@ const formatMoney = (amount = 0): string => {
   const options = {
     style: 'currency',
     currency: 'EUR',
-    minimumFractionDigits: 2,
+    minimumFractionDigits: 2
   };
 
   const formatter = new Intl.NumberFormat('nl-NL', options);

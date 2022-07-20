@@ -1,10 +1,10 @@
-import React from "react";
+import React, { FC } from 'react';
 import useApi from '../lib/useApi';
 import NodeItem from './NodeItem';
 import ErrorMessage from './ErrorMessage';
 import { ApiOptions, SortingOptions } from '../types';
 
-const NodeItemList = () => {
+const NodeItemList: FC = () => {
   const options: ApiOptions = {
     bundle: 'product',
     fields: [
@@ -17,7 +17,7 @@ const NodeItemList = () => {
     ],
     mediaField: 'field_product_image',
     sort: SortingOptions.CreatedDesc,
-    limit: 10,
+    limit: 10
   };
 
   const { data, error, loading } = useApi(options);
@@ -25,11 +25,11 @@ const NodeItemList = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <ErrorMessage error={error} />;
   return (
-    <>
+    <div>
       {data ? (
         data.map((item) => <NodeItem key={item.apiId} item={item} />)
       ) : (<p>No products found.</p>)}
-    </>
+    </div>
   );
 };
 

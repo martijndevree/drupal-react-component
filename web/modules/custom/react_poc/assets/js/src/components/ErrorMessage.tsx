@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const ErrorMessage = ({ error }: {error: Error}) => (
+type Props = {
+  error: Error
+};
+
+const ErrorMessage: FC<Props> = ({ error }) => (
   <>
     <p>
       <i>Something went wrong...</i>

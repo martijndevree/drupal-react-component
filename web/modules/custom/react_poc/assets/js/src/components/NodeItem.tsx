@@ -1,8 +1,12 @@
+import React, { FC } from 'react';
 import { NormalizedDataObject } from '../types';
-import React from 'react';
 import formatMoney from '../lib/formatMoney';
 
-const NodeItem = ({ item }: { item: NormalizedDataObject }) => (
+type Props = {
+  item: NormalizedDataObject
+};
+
+const NodeItem: FC<Props> = ({ item }) => (
   <div>
     {item.image && (
       <img src={item.image.url} alt={item.image.altText} />
