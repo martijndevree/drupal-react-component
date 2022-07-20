@@ -26,21 +26,12 @@ const useApi = (options: ApiOptions) => {
 
   useEffect(() => {
     setLoading(true);
-
-    // Resolves to a string like:
-    //
-    // /jsonapi/node/product
-    // ?include=field_product_image.field_media_image
-    // &fields[file--file]=uri,url
-    // &fields[node--product]=id,drupal_internal__nid,[...],field_product_image
-    // &sort=-created&page[limit]=10
     const url = `${API_ROOT}/node/${options.bundle}?include=${options.mediaField}.field_media_image&fields[file--file]=uri,url&fields[node--${options.bundle}]=${fields}${sort}${limit}`;
 
     fetch(url, { headers })
       .then((response) => response.json())
       .then((responseData: ApiResponseData) => {
         if (isValidResponseData(responseData)) {
-          console.log(responseData);
           setData(normalizeData(responseData));
         } else {
           throw new SyntaxError('Invalid data');
