@@ -25,7 +25,7 @@ const NodeItemList: FC = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <ErrorMessage error={error} />;
   return (
-    <div>
+    <div className='node-item-list'>
       {data ? (
         data.map((item) => <NodeItem key={item.apiId} item={item} />)
       ) : (<p>No products found.</p>)}

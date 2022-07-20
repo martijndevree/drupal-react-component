@@ -1,11 +1,38 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
 .test-app {
-  background: #dedede;
+  background: #865cfe;
   padding: 1rem;
   border-radius: 1rem;
 
   h1 {
-    font-size: 2rem;
-    color: cornflowerblue;
+    font-size: 4rem;
+    color: #fff;
     margin: 0;
+    text-align: center;
+    font-family: Impact, sans-serif;
+    text-transform: uppercase;
   }
+}
+
+.node-item-list {
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.node-item {
+  background: #f4e100;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-size: 1.1rem;
+  align-items: center;
+  text-align: center;
 }

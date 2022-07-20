@@ -7,7 +7,7 @@ type Props = {
 };
 
 const NodeItem: FC<Props> = ({ item }) => (
-  <div>
+  <div className='node-item'>
     {item.image && (
       <img src={item.image.url} alt={item.image.altText} />
     )}
