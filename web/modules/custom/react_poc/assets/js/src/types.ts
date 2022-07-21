@@ -5,7 +5,25 @@ export enum SortingOptions {
   NodeTitleDesc = '-title'
 }
 
+export enum Locales {
+  EN,
+  NL,
+  DE,
+  FR
+}
+
 export type Maybe<T> = T | null;
+
+export type Translation = {
+  EN: string;
+  NL: string;
+  DE: string;
+  FR: string;
+};
+
+export type Translations = {
+  [key: string]: Translation
+};
 
 export type ProductNode = {
   id: string;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import useApi from '../lib/useApi';
+import { useTranslation } from '../lib/localeState';
 import ErrorMessage from './ErrorMessage';
 import Product from './Product';
 import { ApiOptions, SortingOptions, ThemeProps } from '../types';
@@ -20,6 +21,14 @@ import 'swiper/css/navigation';
 const SwiperStyles = styled.div`
   .swiper-button-next, .swiper-button-prev {
     color: ${({ theme }: { theme: ThemeProps }) => theme.colors.white};
+  }
+
+  span {
+    display: block;
+    font-size: 1.1rem;
+    color: ${({ theme }: { theme: ThemeProps }) => theme.colors.white};
+    font-family: ${({ theme }: { theme: ThemeProps }) => theme.fonts.primary};;
+    text-align: center;
   }
 `;
 
@@ -41,6 +50,8 @@ const ProductSlider: FC = () => {
 
   const { data, error, loading } = useApi(options);
 
+  const { t } = useTranslation();
+
   if (loading) return <p>Loading...</p>;
   if (error) return <ErrorMessage error={error} />;
   return (
@@ -58,6 +69,7 @@ const ProductSlider: FC = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <span>{t('inclVat')} | {t('exclVat')}</span>
     </SwiperStyles>
   );
 };
