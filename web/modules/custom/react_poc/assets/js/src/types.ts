@@ -73,3 +73,14 @@ export type NormalizedDataObject = {
     url: string;
   }
 };
+
+export type ThemeProps = {
+  fonts: {
+    primary: string;
+  }
+  colors: {
+    purple: string;
+    yellow: string;
+    white: string;
+  }
+};

@@ -1,12 +1,16 @@
 import React, { FC } from 'react';
-import './App.scss';
-import NodeItemList from './components/NodeItemList';
+import styled from 'styled-components';
+import ProductSlider from './components/ProductSlider';
+import { ThemeProps } from './types';
+
+const AppStyles = styled.div`
+  background: ${({ theme }: { theme: ThemeProps }) => theme.colors.purple};
+`;
 
 const App: FC = () => (
-  <div className='test-app'>
-    <h1>Onze allermooiste trailers</h1>
-    <NodeItemList />
-  </div>
+  <AppStyles>
+    <ProductSlider />
+  </AppStyles>
 );
 
 export default App;

@@ -1,4 +1,5 @@
 const path = require('path');
+
 const isDevMode = process.env.NODE_ENV !== 'production';
 
 const config = {
@@ -20,7 +21,7 @@ const config = {
       '.css',
       '.sass',
       '.scss'
-    ],
+    ]
   },
   module: {
     rules: [
@@ -28,14 +29,14 @@ const config = {
         test: /\.tsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        include: path.join(__dirname, 'assets/js/src'),
+        include: path.join(__dirname, 'assets/js/src')
       },
       {
         test: /\.(sa|sc|c)ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-    ],
-  },
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
+    ]
+  }
 };
 
 module.exports = config;
