@@ -13,10 +13,10 @@ import { ApiOptions, SortingOptions, ThemeProps } from '../types';
  * there seems to be a problem with Swiper and eslint. See:
  * https://github.com/import-js/eslint-plugin-import/issues/2266
  */
-// eslint-disable-next-line import/no-unresolved
+/* eslint-disable */
 import 'swiper/css';
-// eslint-disable-next-line import/no-unresolved
 import 'swiper/css/navigation';
+/* eslint-disable */
 
 const SwiperStyles = styled.div`
   .swiper-button-next, .swiper-button-prev {
