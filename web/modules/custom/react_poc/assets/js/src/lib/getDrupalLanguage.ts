@@ -13,7 +13,7 @@ const getDrupalLanguage = (): Locales => {
   // @ts-ignore
   const currentLanguage: string = drupalSettings.path.currentLanguage as string;
 
-  // Default case is redundant since 'locale' will always contain a value.
+  // Default case is redundant since the final return catches any curveballs.
   // eslint-disable-next-line default-case
   switch (currentLanguage) {
     case 'nl':
