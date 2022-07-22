@@ -12,26 +12,22 @@ const getDrupalLanguage = (): Locales => {
   /* eslint no-undef: ["error", { "typeof": true }] */
   // @ts-ignore
   const currentLanguage: string = drupalSettings.path.currentLanguage as string;
-  let locale: Locales = Locales.EN;
 
   // Default case is redundant since 'locale' will always contain a value.
   // eslint-disable-next-line default-case
   switch (currentLanguage) {
     case 'nl':
     case 'nl-be':
-      locale = Locales.NL;
-      break;
+      return Locales.NL;
     case 'fr':
     case 'fr-be':
-      locale = Locales.FR;
-      break;
+      return Locales.FR;
     case 'de':
     case 'de-at':
-      locale = Locales.DE;
-      break;
+      return Locales.DE;
   }
 
-  return locale;
+  return Locales.EN;
 };
 
 export default getDrupalLanguage;
