@@ -13,7 +13,7 @@ const formatMoney = (amount = 0): string => {
     formattedAmount = formattedAmount.replace(/00$/, '–');
   }
 
-  // Divide by 100 because prices are in cents
+  // Divide by 100 because prices are in cents.
   return formattedAmount;
 };
 

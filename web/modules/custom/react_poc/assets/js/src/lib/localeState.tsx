@@ -4,8 +4,9 @@ import React, {
   useContext,
   useState
 } from 'react';
-import { Locales, Translation } from '../types';
 import translations from '../translations';
+import getDrupalLanguage from './getDrupalLanguage';
+import { Locales, Translation } from '../types';
 
 type Context = {
   locale: Locales;
@@ -21,9 +22,9 @@ const LocalStateContext = createContext<Context>({} as Context);
 const LocalStateProvider = LocalStateContext.Provider;
 
 const LocaleStateProvider: FC<Props> = ({ children }) => {
-  const [locale, setLocale] = useState<Locales>(Locales.NL);
+  const [locale, setLocale] = useState<Locales>(getDrupalLanguage());
 
-  // Returns a string based on the given translation key and the set locale
+  // Returns a string based on the given translation key and the set locale.
   // Example format: translations['personalize']['EN']
   const t = (key: string) => translations[key][Locales[locale] as keyof Translation];
 
@@ -39,7 +40,7 @@ const LocaleStateProvider: FC<Props> = ({ children }) => {
   );
 };
 
-// Custom hook for accessing the locale state
+// Custom hook for accessing the locale state.
 const useTranslation = () => (useContext(LocalStateContext));
 
 export { LocaleStateProvider, useTranslation };
