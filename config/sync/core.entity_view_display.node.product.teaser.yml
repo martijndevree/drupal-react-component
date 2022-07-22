@@ -24,3 +24,4 @@ hidden:
   field_body: true
   field_price: true
   field_product_image: true
+  langcode: true

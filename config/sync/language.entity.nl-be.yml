@@ -1,0 +1,9 @@
+uuid: 8b997424-489e-43f3-b72d-55a24ebd5bb0
+langcode: nl
+status: true
+dependencies: {  }
+id: nl-be
+label: 'Dutch (Belgium)'
+direction: ltr
+weight: -8
+locked: false

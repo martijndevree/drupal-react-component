@@ -20,3 +20,4 @@ content:
     region: content
 hidden:
   field_body: true
+  langcode: true
