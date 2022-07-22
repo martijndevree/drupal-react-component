@@ -17,18 +17,14 @@ type Props = {
   children: any;
 };
 
-const defaultValue: Context = {
-  locale: Locales.EN,
-  setLocale: () => {},
-  t: () => ''
-};
-
-const LocalStateContext = createContext<Context>(defaultValue);
+const LocalStateContext = createContext<Context>({} as Context);
 const LocalStateProvider = LocalStateContext.Provider;
 
 const LocaleStateProvider: FC<Props> = ({ children }) => {
   const [locale, setLocale] = useState<Locales>(Locales.NL);
 
+  // Returns a string based on the given translation key and the set locale
+  // Example format: translations['personalize']['EN']
   const t = (key: string) => translations[key][Locales[locale] as keyof Translation];
 
   return (
