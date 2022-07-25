@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import formatMoney from '../lib/formatMoney';
-import { useTranslation } from '../lib/localeState';
+import { useTranslation } from '../lib/translationState';
 import { NormalizedDataObject, ThemeProps } from '../types';
 
 type Props = {

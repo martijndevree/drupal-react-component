@@ -19,10 +19,10 @@ type Props = {
 const LocalStateContext = createContext<Context>({} as Context);
 const LocalStateProvider = LocalStateContext.Provider;
 
-const LocaleStateProvider: FC<Props> = ({ children }) => {
+const TranslationStateProvider: FC<Props> = ({ children }) => {
   const currentLanguage = getDrupalLanguage();
 
-  // Returns a string based on the given translation key and the set locale.
+  // Returns a string based on the given translation key and the current language.
   // Example format: translations['personalize']['EN']
   const t = (key: TranslationKeys) => translations[key][currentLanguage];
 
@@ -33,7 +33,7 @@ const LocaleStateProvider: FC<Props> = ({ children }) => {
   );
 };
 
-// Custom hook for accessing the locale state.
+// Custom hook for accessing the translation state.
 const useTranslation = () => (useContext(LocalStateContext));
 
-export { LocaleStateProvider, useTranslation };
+export { TranslationStateProvider, useTranslation };

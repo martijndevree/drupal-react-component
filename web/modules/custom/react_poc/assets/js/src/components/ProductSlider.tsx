@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import useApi from '../lib/useApi';
-import { useTranslation } from '../lib/localeState';
+import { useTranslation } from '../lib/translationState';
 import ErrorMessage from './ErrorMessage';
 import Product from './Product';
 import { ApiOptions, SortingOptions, ThemeProps } from '../types';
