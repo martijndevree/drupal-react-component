@@ -1,6 +1,6 @@
-import { Locales } from '../types';
+import { Languages } from '../types';
 
-const getDrupalLanguage = (): Locales => {
+const getDrupalLanguage = (): Languages => {
   /**
    * Getting the drupalSettings object is a bit tedious, since it is defined globally,
    * but React naturally doesn't know about it. Therefore, it needs to be marked as a global
@@ -18,16 +18,16 @@ const getDrupalLanguage = (): Locales => {
   switch (currentLanguage) {
     case 'nl':
     case 'nl-be':
-      return Locales.NL;
+      return 'NL';
     case 'fr':
     case 'fr-be':
-      return Locales.FR;
+      return 'FR';
     case 'de':
     case 'de-at':
-      return Locales.DE;
+      return 'DE';
   }
 
-  return Locales.EN;
+  return 'EN';
 };
 
 export default getDrupalLanguage;

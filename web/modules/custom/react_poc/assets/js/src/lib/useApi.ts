@@ -14,8 +14,6 @@ const useApi = (options: ApiOptions) => {
   const [error, setError] = useState<Maybe<Error>>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const optionsDependency: string = JSON.stringify(options);
-
   const headers: Headers = new Headers({
     Accept: 'application/vnd.api+json'
   });
@@ -39,7 +37,7 @@ const useApi = (options: ApiOptions) => {
       })
       .catch((responseError: Error) => setError(responseError))
       .finally(() => setLoading(false));
-  }, [optionsDependency]);
+  }, []);
 
   return { data, error, loading };
 };

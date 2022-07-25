@@ -1,6 +1,6 @@
-import { Translations } from './types';
+import { TranslationRecord } from './types';
 
-const translations: Translations = {
+const translations: TranslationRecord = {
   personalize: {
     EN: 'Personalize',
     NL: 'Personaliseer',

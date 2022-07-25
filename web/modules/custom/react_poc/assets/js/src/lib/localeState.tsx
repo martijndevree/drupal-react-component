@@ -5,11 +5,11 @@ import React, {
 } from 'react';
 import translations from '../translations';
 import getDrupalLanguage from './getDrupalLanguage';
-import { Locales, Translation } from '../types';
+import { Languages, TranslationKeys } from '../types';
 
 type Context = {
-  locale: Locales;
-  t: (key: string) => string
+  currentLanguage: Languages;
+  t: (key: TranslationKeys) => string;
 };
 
 type Props = {
@@ -20,14 +20,14 @@ const LocalStateContext = createContext<Context>({} as Context);
 const LocalStateProvider = LocalStateContext.Provider;
 
 const LocaleStateProvider: FC<Props> = ({ children }) => {
-  const locale = getDrupalLanguage();
+  const currentLanguage = getDrupalLanguage();
 
   // Returns a string based on the given translation key and the set locale.
   // Example format: translations['personalize']['EN']
-  const t = (key: string) => translations[key][Locales[locale] as keyof Translation];
+  const t = (key: TranslationKeys) => translations[key][currentLanguage];
 
   return (
-    <LocalStateProvider value={{ locale, t }}>
+    <LocalStateProvider value={{ currentLanguage, t }}>
       {children}
     </LocalStateProvider>
   );

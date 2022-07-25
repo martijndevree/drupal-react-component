@@ -5,27 +5,24 @@ export enum SortingOptions {
   NodeTitleDesc = '-title'
 }
 
-export enum Locales {
-  EN,
-  NL,
-  DE,
-  FR
-}
-
 export type Maybe<T> = T | null;
 
-export type Translation = {
-  EN: string;
-  NL: string;
-  DE: string;
-  FR: string;
-};
+export type TranslationKeys =
+  'personalize'
+  | 'inclVat'
+  | 'exclVat';
 
-export type Translations = {
-  [key: string]: Translation
-};
+export type Languages =
+  'EN'
+  | 'NL'
+  | 'DE'
+  | 'FR';
 
-export type ProductNode = {
+export type LanguageRecord = Record<Languages, string>;
+
+export type TranslationRecord = Record<TranslationKeys, LanguageRecord>;
+
+export interface ProductNode {
   id: string;
   attributes: {
     drupal_internal__nid: number;
@@ -42,9 +39,9 @@ export type ProductNode = {
       }
     }
   }
-};
+}
 
-export type MediaItem = {
+export interface MediaItem {
   id: string;
   relationships: {
     field_media_image: {
@@ -56,31 +53,31 @@ export type MediaItem = {
       }
     }
   }
-};
+}
 
-export type File = {
+export interface File {
   id: string;
   attributes: {
     uri: {
       url: string;
     }
   }
-};
+}
 
-export type ApiOptions = {
+export interface ApiOptions {
   bundle: string;
   fields: string[];
   mediaField: string;
   limit?: number;
   sort?: SortingOptions;
-};
+}
 
-export type ApiResponseData = {
+export interface ApiResponseData {
   data: ProductNode[];
   included: MediaItem[] | File[];
-};
+}
 
-export type NormalizedDataObject = {
+export interface NormalizedDataObject {
   apiId: string;
   drupalId: number;
   name: string;
@@ -90,9 +87,9 @@ export type NormalizedDataObject = {
     altText: string;
     url: string;
   }
-};
+}
 
-export type ThemeProps = {
+export interface ThemeProps {
   fonts: {
     primary: string;
   }
@@ -101,4 +98,4 @@ export type ThemeProps = {
     yellow: string;
     white: string;
   }
-};
+}

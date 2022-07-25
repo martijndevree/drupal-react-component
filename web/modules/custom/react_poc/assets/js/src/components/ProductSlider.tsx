@@ -32,22 +32,22 @@ const SwiperStyles = styled.div`
   }
 `;
 
-const ProductSlider: FC = () => {
-  const options: ApiOptions = {
-    bundle: 'product',
-    fields: [
-      'id',
-      'drupal_internal__nid',
-      'title',
-      'field_body',
-      'field_price',
-      'field_product_image'
-    ],
-    mediaField: 'field_product_image',
-    sort: SortingOptions.CreatedDesc,
-    limit: 10
-  };
+const options: ApiOptions = {
+  bundle: 'product',
+  fields: [
+    'id',
+    'drupal_internal__nid',
+    'title',
+    'field_body',
+    'field_price',
+    'field_product_image'
+  ],
+  mediaField: 'field_product_image',
+  sort: SortingOptions.CreatedDesc,
+  limit: 10
+};
 
+const ProductSlider: FC = () => {
   const { data, error, loading } = useApi(options);
 
   const { t } = useTranslation();
