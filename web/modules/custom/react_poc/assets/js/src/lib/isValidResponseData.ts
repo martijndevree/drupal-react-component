@@ -1,14 +1,12 @@
 import { ApiResponseData } from '../types';
 
-const isValidResponseData = (responseData: ApiResponseData): boolean => {
-  if (responseData === null) return false;
-  if (responseData.data === undefined
-    || responseData.data === null
-    || responseData.data.length === 0
-    || responseData.included === undefined
-    || responseData.included === null
-    || responseData.included.length === 0) return false;
-  return true;
-};
+/**
+ * Returns true when responseData contains nodes.
+ * Returns false in every other instance.
+ * @param responseData
+ */
+const isValidResponseData = (responseData: ApiResponseData): boolean => (
+  responseData?.data?.length > 0
+);
 
 export default isValidResponseData;

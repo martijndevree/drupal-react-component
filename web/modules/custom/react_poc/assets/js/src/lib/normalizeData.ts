@@ -18,31 +18,33 @@ const normalizeData = (responseData: ApiResponseData): NormalizedDataObject[] =>
     normalizedDataObject.description = item.attributes.field_body?.value;
     normalizedDataObject.price = item.attributes.field_price;
 
-    let mediaItem: Maybe<MediaItem> = null;
+    if (included?.length > 0) {
+      let mediaItem: Maybe<MediaItem> = null;
 
-    for (let i = 0; i < included.length; i += 1) {
-      const relationshipId = item.relationships.field_product_image.data?.id;
-      const includedItem = included[i] as MediaItem;
-      const mediaItemId = includedItem.id;
-
-      if (relationshipId === mediaItemId) {
-        mediaItem = includedItem;
-        break;
-      }
-    }
-
-    if (mediaItem) {
       for (let i = 0; i < included.length; i += 1) {
-        const mediaItemId = mediaItem.relationships.field_media_image.data.id;
-        const includedItem = included[i] as File;
-        const fileId = includedItem.id;
+        const relationshipId = item.relationships.field_product_image.data?.id;
+        const includedItem = included[i] as MediaItem;
+        const mediaItemId = includedItem.id;
 
-        if (mediaItemId === fileId) {
-          normalizedDataObject.image = {
-            altText: mediaItem.relationships.field_media_image.data.meta.alt,
-            url: includedItem.attributes.uri.url
-          };
+        if (relationshipId === mediaItemId) {
+          mediaItem = includedItem;
           break;
+        }
+      }
+
+      if (mediaItem) {
+        for (let i = 0; i < included.length; i += 1) {
+          const mediaItemId = mediaItem.relationships.field_media_image.data.id;
+          const includedItem = included[i] as File;
+          const fileId = includedItem.id;
+
+          if (mediaItemId === fileId) {
+            normalizedDataObject.image = {
+              altText: mediaItem.relationships.field_media_image.data.meta.alt,
+              url: includedItem.attributes.uri.url
+            };
+            break;
+          }
         }
       }
     }
