@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
-import { TranslationStateProvider } from './lib/translationState';
+import { TranslationStateProvider } from './lib/translationContext';
 import { ThemeProps } from './types';
 
 const theme: ThemeProps = {
